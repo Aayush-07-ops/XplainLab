@@ -1,410 +1,256 @@
-# 🔍 XplainLab - Explainable Machine Learning Platform
+# XplainLab
 
-![XplainAI Banner](https://img.shields.io/badge/XplainAI-Transparent%20AI-blue?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.8%2B-green?style=for-the-badge)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.31.0-red?style=for-the-badge)
+**Transparent ML decisions for Loan Eligibility & Student Eligibility**
 
-Making Machine Learning Decisions Transparent, Understandable, and Human-Friendly
+XplainLab is an interactive Streamlit application that provides explainable AI predictions for loan eligibility and student eligibility using multiple machine learning algorithms. The application emphasizes transparency by showing not just the predictions, but also the reasoning behind them.
 
-## 🌟 Overview
+## 🎯 Features
 
-XplainAI is an interactive web application that makes machine learning decisions transparent and easy to understand. It's designed for anyone who wants to know **why** an AI system made a particular decision - not just **what** the decision was.
+- **User Authentication**: Secure login system to manage user sessions
+- **Multiple ML Algorithms**: Choose from Decision Tree, K-Nearest Neighbors (KNN), or Logistic Regression
+- **Two Prediction Domains**:
+  - Loan Eligibility: Predict if a loan applicant is eligible
+  - Student Eligibility: Predict if a student meets eligibility criteria
+- **Explanation Modes**:
+  - Beginner Mode: Simplified explanations
+  - Expert Mode: Detailed technical explanations
+- **Explainability Features**: Understand why predictions are made with visual explanations and decision rules
+- **Data Visualization**: Graphs and charts to visualize model behavior and predictions
 
-### ✨ Key Features
+## 📋 Project Structure
 
-- **🎯 Real-World Scenarios**: Choose from loan approval and student admission datasets
-- **🤖 Multiple Algorithms**: Compare Decision Trees, Logistic Regression, KNN, and Random Forest
-- **⚡ Instant Predictions**: Get immediate results with one click
-- **📊 Clear Explanations**: Understand exactly why each decision was made
-- **🎨 Beautiful UI**: Cute, simple theme with smooth animations
-- **📱 Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **🔍 Feature Importance**: Visual breakdown of what factors matter most
-- **👥 User-Friendly**: Guided step-by-step flow for first-time users
+```
+XplainLab/
+├── app.py                          # Main Streamlit application entry point
+├── requirement.txt                 # Python dependencies
+├── README.md                       # This file
+│
+├── lib/                            # Library modules
+│   ├── __init__.py
+│   ├── auth.py                     # Authentication and session management
+│   ├── data.py                     # Data loading and preprocessing
+│   ├── models.py                   # ML model training and prediction
+│   ├── ui.py                       # UI components and styling
+│   └── __pycache__/
+│
+└── pages/                          # Streamlit multi-page app pages
+    ├── 1_Login.py                  # User login page
+    ├── 2_Choose_Dataset_Algorithm.py  # Dataset and algorithm selection
+    ├── 3_Loan_Applicant.py         # Loan eligibility prediction form
+    ├── 4_Student_Eligibility.py    # Student eligibility prediction form
+    └── 5_About.py                  # About page
+```
 
-## 🎯 Problem Statement
-
-### Why XplainAI Exists
-
-Most machine learning models act as **black boxes** - they give results without explanations. This creates several problems:
-
-1. **Lack of Trust**: Users don't understand why they were approved or rejected
-2. **No Learning Opportunity**: Students and non-experts can't learn how ML works
-3. **Impact on Lives**: Automated decisions affect real people without transparency
-4. **Compliance Issues**: Banks and institutions need to explain their AI decisions
-
-### Our Solution
-
-XplainAI makes ML decisions:
-- ✅ **Transparent**: See exactly what factors influenced the decision
-- ✅ **Explainable**: Human-friendly language, not technical jargon
-- ✅ **Educational**: Learn how different algorithms work
-- ✅ **Fair**: Build trust by showing the reasoning
-- ✅ **Accessible**: Simple interface anyone can use
-
-## 🎓 Target Users
-
-### 👨‍🎓 Students & Learners
-- Understand machine learning concepts through hands-on experimentation
-- See how different algorithms make decisions
-- Learn about feature importance and model evaluation
-
-### 👩‍🏫 Educators
-- Teach explainable AI in a simple, visual way
-- Demonstrate transparency in AI systems
-- Engage students with interactive learning
-
-### 🏦 End Users (Loan Applicants, Students)
-- Understand why they were approved or rejected
-- Learn what factors they can improve
-- Build trust in AI-driven decisions
-
-### 🏢 Institutions (Banks, Universities, Organizations)
-- Demonstrate transparency in automated decision-making
-- Meet regulatory requirements for AI explainability
-- Build customer trust through clear communication
-
-## 🚀 Quick Start
+## 🚀 Installation
 
 ### Prerequisites
-
 - Python 3.8 or higher
 - pip (Python package manager)
 
-### Installation
+### Setup Instructions
 
-1. **Clone or download the project**
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd XplainLab
+   ```
 
-```powershell
-cd C:\Users\ankus\xplainai
-```
+2. **Create a virtual environment** (recommended)
+   ```bash
+   python -m venv venv
+   
+   # On Windows
+   venv\Scripts\activate
+   
+   # On macOS/Linux
+   source venv/bin/activate
+   ```
 
-2. **Install dependencies**
+3. **Install dependencies**
+   ```bash
+   pip install -r requirement.txt
+   ```
 
-```powershell
-pip install -r requirements.txt
-```
+## 📦 Dependencies
 
-3. **Run the application**
+The project requires the following Python packages:
 
-```powershell
+- **streamlit** (>=1.30) - Web application framework
+- **pandas** (>=2.0) - Data manipulation and analysis
+- **numpy** (>=1.24) - Numerical computing
+- **scikit-learn** (>=1.3) - Machine learning library
+- **matplotlib** (>=3.7) - Data visualization
+- **seaborn** (>=0.13) - Statistical data visualization
+
+See `requirement.txt` for exact versions.
+
+## 🏃 Running the Application
+
+Start the Streamlit application with:
+
+```bash
 streamlit run app.py
 ```
 
-4. **Open in browser**
+The application will open in your default browser at `http://localhost:8501`
 
-The app will automatically open at `http://localhost:8501`
+### Using a Specific Port
 
-If it doesn't open automatically, navigate to that URL in your browser.
-
-## 📖 How to Use
-
-### Step-by-Step Guide
-
-#### Step 1: Choose Your Problem Type 📊
-Select a real-world scenario:
-- **🏦 Loan Approval**: Banking & finance scenario
-- **🎓 Student Admission**: University admission scenario
-
-#### Step 2: Select an AI Algorithm 🤖
-Choose from four different algorithms:
-- **Decision Tree**: Easy to understand, tree-based decisions
-- **Logistic Regression**: Statistical approach, fast and reliable
-- **KNN**: Learns from similar past cases
-- **Random Forest**: Combines multiple trees for accuracy
-
-Each algorithm shows its accuracy percentage to help you choose.
-
-#### Step 3: Enter Your Details 📝
-Fill in the relevant information:
-
-**For Loan Approval:**
-- Credit Score (300-850)
-- Annual Income ($)
-- Loan Amount ($)
-- Years of Employment
-- Debt-to-Income Ratio
-
-**For Student Admission:**
-- GPA (2.0-4.0)
-- Test Score (800-1600)
-- Number of Extracurricular Activities
-- Essay Score (1-10)
-
-#### Step 4: Get Your Result 🎯
-Receive:
-- ✅ **Approved** or ❌ **Rejected** decision
-- **Confidence Level**: How confident the model is
-- **Detailed Explanation**: Why the decision was made
-- **Feature Importance**: What factors mattered most
-- **Visual Charts**: Easy-to-understand graphics
-
-## 🏗️ Technical Architecture
-
-### System Components
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    Frontend (Streamlit)                 │
-│  - User Interface                                       │
-│  - Step-by-step flow                                    │
-│  - Visualizations                                       │
-└─────────────────┬───────────────────────────────────────┘
-                  │
-┌─────────────────▼───────────────────────────────────────┐
-│              ML Model Manager                           │
-│  - Model training & management                          │
-│  - Prediction generation                                │
-│  - Feature importance calculation                       │
-└─────────────────┬───────────────────────────────────────┘
-                  │
-┌─────────────────▼───────────────────────────────────────┐
-│           Dataset Generators                            │
-│  - Loan Approval Dataset                                │
-│  - Student Admission Dataset                            │
-└─────────────────────────────────────────────────────────┘
+```bash
+streamlit run app.py --server.port 8080
 ```
 
-### Technology Stack
+## 📖 Usage Guide
 
-#### 🎨 Frontend
-- **Streamlit**: Interactive web framework
-- **Custom CSS**: Beautiful gradient themes and animations
-- **Responsive Design**: Works on all devices
+### 1. **Login** (`1_Login.py`)
+   - Enter your full name, email, and contact number
+   - Select your role: "Loan Applicant" or "Student"
+   - Accept Terms & Conditions
+   - Click "Login" to proceed
 
-#### 🔧 Backend & Processing
-- **Pandas**: Data manipulation
-- **NumPy**: Numerical computations
-- **Python**: Core language
+### 2. **Choose Dataset & Algorithm** (`2_Choose_Dataset_Algorithm.py`)
+   - Select a dataset:
+     - **Loan Eligibility**: Predict loan approval
+     - **Student Eligibility**: Predict student eligibility
+   - Choose an ML algorithm:
+     - Decision Tree
+     - K-Nearest Neighbors (KNN)
+     - Logistic Regression
+   - Select explanation mode:
+     - Beginner: Simple explanations
+     - Expert: Technical details
+   - Click "Submit" to proceed
 
-#### 🤖 Machine Learning
-- **scikit-learn**: ML algorithms
-  - Decision Tree Classifier
-  - Logistic Regression
-  - K-Nearest Neighbors
-  - Random Forest Classifier
-- **Feature Engineering**: StandardScaler for normalization
+### 3. **Enter Application Details**
+   - **Loan Applicant** (`3_Loan_Applicant.py`): Fill in loan application details
+   - **Student Eligibility** (`4_Student_Eligibility.py`): Fill in student information
 
-#### 📊 Visualization
-- **Matplotlib**: Statistical plots
-- **Seaborn**: Enhanced visualizations
-- **Plotly**: Interactive charts
+### 4. **View Results**
+   - Get prediction result (Eligible/Not Eligible)
+   - See explanation of why the prediction was made
+   - View visualizations and decision rules
+   - Understand model decision factors
 
-#### 🔍 Explainability
-- **SHAP**: Model explanation (for advanced features)
-- **Feature Importance**: Native algorithm support
-- **Human-Readable Rules**: Custom explanation engine
+## 🔐 Authentication
 
-### Data Flow (User Journey)
+The application uses Streamlit's session state for authentication:
+- User login credentials are stored in session state
+- Session persists during the browsing session
+- All pages after login verify authentication status
+
+## 🤖 Machine Learning Models
+
+### Supported Algorithms
+
+1. **Decision Tree**
+   - Interpretable tree-based model
+   - Shows decision rules clearly
+   - Easy to understand for beginners
+
+2. **K-Nearest Neighbors (KNN)**
+   - Instance-based learning algorithm
+   - Finds similar cases in training data
+   - Good for explaining based on similar examples
+
+3. **Logistic Regression**
+   - Probabilistic classification model
+   - Provides probability scores
+   - Suitable for risk assessment
+
+### Data Processing Pipeline
+
+- **Numeric Features**: Imputed with median values and scaled to standard normal distribution
+- **Categorical Features**: Imputed with most frequent values and one-hot encoded
+- **Train-Test Split**: 80-20 split for model evaluation
+
+## 🎨 UI/UX Features
+
+- Clean, modern dark-themed interface
+- Sidebar navigation for easy page switching
+- User information card in sidebar
+- Form validation and error messages
+- Success/info notification messages
+- Responsive design
+
+## 📝 Pages Overview
+
+| Page | Purpose | File |
+|------|---------|------|
+| Login | User authentication | `1_Login.py` |
+| Choose Dataset & Algorithm | Model configuration | `2_Choose_Dataset_Algorithm.py` |
+| Loan Applicant | Loan eligibility form | `3_Loan_Applicant.py` |
+| Student Eligibility | Student eligibility form | `4_Student_Eligibility.py` |
+| About | Project information | `5_About.py` |
+
+## 🔄 Navigation Flow
 
 ```
-1. User selects dataset
-   ↓
-2. System trains 4 ML models
-   ↓
-3. User selects algorithm
-   ↓
-4. User enters input data
-   ↓
-5. Model makes prediction
-   ↓
-6. System generates explanation
-   ↓
-7. Display results with:
-   - Approval/Rejection
-   - Confidence score
-   - Detailed reasoning
-   - Feature importance chart
-   - Interactive visualizations
+app.py (Home)
+  ↓
+1_Login.py (User logs in)
+  ↓
+2_Choose_Dataset_Algorithm.py (Select dataset & algorithm)
+  ↓
+3_Loan_Applicant.py OR 4_Student_Eligibility.py (Make prediction)
+  ↓
+View Results & Explanations
 ```
 
-## 📁 Project Structure
+## 🐛 Troubleshooting
 
-```
-xplainai/
-├── app.py                 # Main Streamlit application
-├── ml_models.py          # ML models and datasets
-├── requirements.txt      # Python dependencies
-└── README.md            # This file
+### Port Already in Use
+If port 8501 is already in use, specify a different port:
+```bash
+streamlit run app.py --server.port 8502
 ```
 
-### File Descriptions
-
-- **app.py**: Main application with UI, user flow, and visualization logic
-- **ml_models.py**: ML model training, prediction, and explanation generation
-- **requirements.txt**: All required Python packages
-- **README.md**: Complete documentation
-
-## 🎨 Design Philosophy
-
-### Cute & Simple Theme
-
-- **Gradient Colors**: Purple and blue gradients for a modern look
-- **Smooth Animations**: Fade-in effects and hover transitions
-- **Card-Based Layout**: Clean, organized information blocks
-- **Emoji Integration**: Visual cues for better user experience
-- **Responsive Typography**: Readable on all screen sizes
-
-### User Experience Principles
-
-1. **🚀 Quick for First-Time Users**
-   - Easy login & setup (no registration required)
-   - Guided step-by-step flow
-   - One-click prediction
-
-2. **😊 Comfortable & Intuitive**
-   - Simple forms with clear labels
-   - Human-friendly messages (not technical jargon)
-   - Works on phone & desktop
-
-3. **💬 Clear Communication**
-   - Results shown instantly
-   - Explanations in simple language
-   - Visual aids and charts
-
-## 🔬 Model Training & Accuracy
-
-### Training Process
-
-All models are trained automatically when you select a dataset:
-- **Training Set**: 80% of the data
-- **Test Set**: 20% of the data
-- **Random Seed**: 42 (for reproducibility)
-- **Validation**: Accuracy calculated on test set
-
-### Typical Accuracy Ranges
-
-| Algorithm | Loan Approval | Student Admission |
-|-----------|---------------|-------------------|
-| Decision Tree | 75-85% | 70-80% |
-| Logistic Regression | 80-90% | 75-85% |
-| KNN | 75-85% | 75-85% |
-| Random Forest | 85-95% | 80-90% |
-
-*Note: Actual accuracy varies based on random data generation*
-
-## 🧮 How Calculations Work
-
-### No Calculation Errors Guaranteed
-
-All calculations use robust, tested libraries:
-
-1. **Data Generation**: Realistic statistical distributions
-   - Normal distribution for continuous features
-   - Beta/Poisson for specific patterns
-   - Clipping to ensure valid ranges
-
-2. **Prediction Logic**: Battle-tested sklearn algorithms
-   - Proper train/test split
-   - Feature scaling where needed
-   - Probability calibration
-
-3. **Explanation Engine**: Rule-based system
-   - Threshold-based explanations
-   - Relative comparisons
-   - Feature importance aggregation
-
-### Example: Loan Approval Logic
-
-```python
-# Approval score calculation (simplified)
-approval_score = (
-    (credit_score - 300) / 550 * 0.35 +  # 35% weight
-    (income / 200000) * 0.25 +            # 25% weight
-    (1 - loan_amount / 500000) * 0.20 +   # 20% weight
-    (employment_years / 40) * 0.10 +      # 10% weight
-    (1 - debt_to_income / 0.8) * 0.10     # 10% weight
-)
-
-# Decision: Approve if score > 0.5 (with some noise for realism)
+### Import Errors
+Ensure all dependencies are installed:
+```bash
+pip install -r requirement.txt
 ```
 
-## 🎯 Use Cases
+### Session State Issues
+Clear Streamlit cache if experiencing session state problems:
+- Click the ⚙️ settings icon in Streamlit
+- Select "Clear cache"
 
-### 1. Education - Teaching ML Concepts
-**Scenario**: A computer science professor wants to teach explainable AI.
+## 📧 Support & Feedback
 
-**How XplainAI Helps**:
-- Students experiment with different inputs
-- Compare how algorithms make different decisions
-- Visualize feature importance in real-time
-- Learn by doing, not just reading
+For issues, questions, or feedback, please reach out to the development team.
 
-### 2. Banking - Transparent Loan Decisions
-**Scenario**: A bank wants to explain loan rejections to customers.
+## 📄 License
 
-**How XplainAI Helps**:
-- Shows exactly why a loan was denied
-- Identifies areas for improvement
-- Builds customer trust
-- Meets regulatory requirements
+This project is an educational tool for demonstrating explainable AI concepts.
 
-### 3. Self-Learning - Understanding AI
-**Scenario**: Someone curious about how AI makes decisions.
+**Important**: This is a demo educational system. Do not enter real sensitive financial data.
 
-**How XplainAI Helps**:
-- No technical knowledge required
-- Experiment with different scenarios
-- Learn at your own pace
-- Interactive and engaging
+## 👨‍💻 Development
 
-## 🔮 Future Enhancements
+### Project Modules
 
-### Planned Features
-- [ ] More datasets (healthcare, credit cards, job applications)
-- [ ] Deep learning models (neural networks)
-- [ ] SHAP value visualizations
-- [ ] PDF report generation
-- [ ] Multi-language support
-- [ ] User accounts and history
-- [ ] Comparison mode (compare multiple models side-by-side)
-- [ ] Custom dataset upload
-- [ ] API endpoints for integration
+- **auth.py**: Handles authentication, session management, and page navigation
+- **data.py**: Loads and manages loan/student datasets
+- **models.py**: Implements ML model training, prediction, and SHAP-based explanations
+- **ui.py**: Provides reusable UI components and styling functions
 
-## 🤝 Contributing
+### Adding New Features
 
-Contributions are welcome! Here's how you can help:
+To extend the application:
+1. Add new page in `pages/` directory
+2. Follow naming convention: `X_PageName.py`
+3. Import necessary components from `lib/`
+4. Add sidebar navigation link if needed
 
-1. **Report Bugs**: Open an issue describing the problem
-2. **Suggest Features**: Share your ideas for improvements
-3. **Submit PRs**: Fix bugs or add new features
-4. **Improve Docs**: Help make the documentation clearer
-5. **Share Feedback**: Let us know what works and what doesn't
+## 🎓 Educational Value
 
-## 📝 License
-
-This project is open source and available for educational purposes.
-
-## 🙏 Acknowledgments
-
-Built with:
-- **Streamlit** - Amazing web framework
-- **scikit-learn** - Powerful ML library
-- **Plotly** - Interactive visualizations
-- **Python** - Beautiful language
-
-Inspired by the need for transparent and explainable AI systems.
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-1. Check this README for guidance
-2. Review the inline help text in the app
-3. Experiment with different inputs
-4. Reach out for support
-
-## 🎉 Getting Started Now!
-
-Ready to explore explainable AI? Just run:
-
-```powershell
-streamlit run app.py
-```
-
-And start experimenting! 🚀
+This application serves as a learning resource for:
+- Machine Learning fundamentals
+- Model explainability and interpretability
+- Streamlit web application development
+- User authentication in web apps
+- Data preprocessing and feature engineering
 
 ---
 
-**Made with ❤️ by XplainAI | Empowering Transparent AI**
-
-*Built with Streamlit, scikit-learn, and Python*
-
+**Made with ❤️ using Streamlit**
