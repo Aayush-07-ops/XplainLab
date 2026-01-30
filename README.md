@@ -1,4 +1,4 @@
-# 🔍 XplainAI - Explainable Machine Learning Platform
+# 🔍 XplainLab - Explainable Machine Learning Platform
 
 ![XplainAI Banner](https://img.shields.io/badge/XplainAI-Transparent%20AI-blue?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-green?style=for-the-badge)
@@ -407,3 +407,4 @@ And start experimenting! 🚀
 **Made with ❤️ by XplainAI | Empowering Transparent AI**
 
 *Built with Streamlit, scikit-learn, and Python*
+
